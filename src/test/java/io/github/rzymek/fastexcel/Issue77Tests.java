@@ -14,7 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Issue77 {
+public class Issue77Tests {
     public byte[] createXlsx() throws IOException {
         try (ByteArrayOutputStream buf = new ByteArrayOutputStream()) {
             Workbook wb = new Workbook(buf, "issue77", "0.0");
@@ -26,7 +26,7 @@ public class Issue77 {
     }
 
     @Test
-    public void test() throws IOException {
+    void test() throws IOException {
         try (InputStream in = new ByteArrayInputStream(createXlsx());
              ReadableWorkbook wb = new ReadableWorkbook(in)) {
             List<Row> sheet1 = wb.getFirstSheet().read();
